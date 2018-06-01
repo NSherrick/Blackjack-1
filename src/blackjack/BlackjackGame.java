@@ -38,7 +38,26 @@ public class BlackjackGame implements Game {
         System.out.println("exit (e) - Exit");
     }
     
-    private void HandleMenuOption(String option) {
+    private boolean HandleMenuOption(String option) {
+        boolean exit = false;
+        
+        switch (option) {
+            case "play":
+            case "p":
+                break;
+            case "help":
+            case "h":
+                DisplayHelp();
+                break;
+            case "exit":
+            case "e":
+                exit = true;
+                break;
+            default:
+                break;
+        }
+        
+        return exit;
     }
     
     @Override
@@ -47,9 +66,12 @@ public class BlackjackGame implements Game {
 
     @Override
     public void Run() {
-        DisplayMenu();
+        boolean exit = false;
 
-        String option = GetInput();
-        HandleMenuOption(option);
+        while (!exit) {
+            DisplayMenu();
+            String option = GetInput();
+            exit = HandleMenuOption(option);
+        }
     }
 }
