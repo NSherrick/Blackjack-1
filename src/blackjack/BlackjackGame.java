@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Ali
+ * @author
  */
 public class BlackjackGame implements Game {
 
@@ -38,12 +38,25 @@ public class BlackjackGame implements Game {
         System.out.println("exit (e) - Exit");
     }
     
+    public void GetGameSettings() {
+        System.out.print("Enter Number of Decks (1 - 8) ");
+        String decks = GetInput();
+        System.out.println("Interactive (i) or Auto (a) Game Play ");
+    }
+    
+    public void GetPlayerSettings() {
+        System.out.println("Player Name ");
+        System.out.println("Player Buyin ");
+    }
+    
     private boolean HandleMenuOption(String option) {
         boolean exit = false;
         
         switch (option) {
             case "play":
             case "p":
+                GetGameSettings();
+                GetPlayerSettings();
                 break;
             case "help":
             case "h":
@@ -54,6 +67,7 @@ public class BlackjackGame implements Game {
                 exit = true;
                 break;
             default:
+                System.out.println("Invalid Option\n");
                 break;
         }
         
@@ -62,6 +76,10 @@ public class BlackjackGame implements Game {
     
     @Override
     public void DisplayHelp() {
+        System.out.println("*******************************************");
+        System.out.println("OBJECT OF THE GAME");
+        System.out.println("Each participant attempts to beat the dealer by getting a count as close to 21 as possible, without going over 21.");
+        System.out.println("*******************************************\n");
     }
 
     @Override

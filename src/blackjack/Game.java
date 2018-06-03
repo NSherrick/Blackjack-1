@@ -7,7 +7,7 @@ package blackjack;
 
 /**
  *
- * @author Ali
+ * @author
  */
 public interface Game {
 

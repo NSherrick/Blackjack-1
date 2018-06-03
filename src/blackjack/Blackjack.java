@@ -7,7 +7,7 @@ package blackjack;
 
 /**
  *
- * @author Ali
+ * @author
  */
 public class Blackjack {
 
