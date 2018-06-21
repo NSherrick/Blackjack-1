@@ -12,6 +12,6 @@ package blackjack;
 public interface Game {
 
     void DisplayHelp();
-
+    
     void Run();
 }

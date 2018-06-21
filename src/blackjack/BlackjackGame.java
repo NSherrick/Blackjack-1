@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Scanner;
 
 /**
  *
@@ -17,6 +18,10 @@ import java.util.logging.Logger;
  */
 public class BlackjackGame implements Game {
 
+    Player player;
+    Dealer dealer;
+    Scanner input = new Scanner(System.in);
+        
     private String GetInput() {
         String s = "";
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -45,8 +50,22 @@ public class BlackjackGame implements Game {
     }
     
     public void GetPlayerSettings() {
-        System.out.println("Player Name ");
+        String name = "";
+        
+        while(name.equals("")){
+          System.out.println("Player Name ");
+          name = input.nextLine();
+        }
+              
         System.out.println("Player Buyin ");
+        
+        // This part will break if its not a double/int
+        double balance = input.nextDouble();
+        player = new Player(name, balance);
+        System.out.println(player.toString());
+        
+        
+        
     }
     
     private boolean HandleMenuOption(String option) {
